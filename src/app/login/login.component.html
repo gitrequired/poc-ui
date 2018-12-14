@@ -1,0 +1,37 @@
+<h1><small>Login</small></h1>
+<hr>
+<form (ngSubmit)="onLogin()">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <table class="table">
+        <tr>
+          <td>UserName</td>
+          <td>
+            <div class="col-lg-5">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>PassWord</td>
+          <td>
+            <div class="col-lg-5">
+              <div class="input-group">
+                <input type="password" class="form-control" placeholder="******" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2"><button type="submit" class="btn btn-primary">Login</button></div>
+        <div class="col-lg-5"></div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</form>

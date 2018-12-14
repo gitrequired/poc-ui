@@ -1,0 +1,9 @@
+<div>
+    <app-header *ngIf="showHF"></app-header>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+<footer class="navbar navbar-light bg-light" *ngIf="showHF">
+    <app-footer></app-footer>
+</footer>
