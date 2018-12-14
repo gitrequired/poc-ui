@@ -15,6 +15,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MenuComponent } from './menu/menu.component';
 import { SearchProviderComponent } from './search-provider/search-provider.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProviderRegistrationComponent } from './provider-registration/provider-registration.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProfileComponent } from './profile/profile.component';
     PagenotfoundComponent,
     MenuComponent,
     SearchProviderComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProviderRegistrationComponent
   ],
   imports: [
     BrowserModule,

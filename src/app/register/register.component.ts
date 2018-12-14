@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  prefixes:Array<string>;
   constructor() { }
 
   ngOnInit() {
+  this.prefixes = ["Mr.","Mrs.","Miss.","Dr."];
   }
 
 }
