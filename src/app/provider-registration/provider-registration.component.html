@@ -19,6 +19,12 @@
     <input type="text" class="form-control">
   </div>
   <div class="form-group">
+    <label class="control-label">DOB</label>
+    <div>
+      <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker>
+    </div>
+  </div>
+  <div class="form-group">
     <label class="control-label">Gender</label>
     <div class="radio">
       <label>
@@ -31,13 +37,28 @@
         Female</label>
     </div>
   </div>
-
-
+  <div class="form-group">
+    <label class="control-label">SSN</label>
+    <input type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label class="control-label">Primary Specialization</label>
+    <select class="form-control">
+      <option selected>Select Specialization</option>
+      <option *ngFor="let suffix of suffixes">{{suffix}}</option>
+    </select>
+  </div>
   <div class="checkbox">
     <label><input type="checkbox">Sencondary Specialization</label>
+    <select class="form-control" disabled>
+      <option selected>Select Specialization</option>
+      <option *ngFor="let suffix of suffixes">{{suffix}}</option>
+    </select>
+  </div>
+  <div class="form-group">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
   <hr>
   <br>
-<br>
+  <br>
 </form>

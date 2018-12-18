@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
   onLogin(loginForm: NgForm): any {
     console.log(loginForm.value);
     this.service.loginService(loginForm.value.userName, loginForm.value.password).subscribe(response => {
-      console.log("Success response :: " + response.userId );
-      this.cookieService.set("UID", response.userId);
-      this.cookieService.set("UName", response.username);
+      //console.log("Success response :: " + response.userId );
+      //this.cookieService.set("UID", response.userId);
+      //this.cookieService.set("UName", response.username);
       this.router.navigate(['/home']);
     }, error => {
       console.log("error :: " + JSON.stringify(error.status));
