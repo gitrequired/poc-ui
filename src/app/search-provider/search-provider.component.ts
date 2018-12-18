@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-search-provider',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchProviderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private cookieService: CookieService) { }
 
   ngOnInit() {
+    if(!this.cookieService.check("UID")){
+      this.router.navigate(['/']);
+    }
   }
-
 }

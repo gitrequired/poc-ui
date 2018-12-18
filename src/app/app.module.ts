@@ -17,6 +17,11 @@ import { SearchProviderComponent } from './search-provider/search-provider.compo
 import { ProfileComponent } from './profile/profile.component';
 import { ProviderRegistrationComponent } from './provider-registration/provider-registration.component';
 
+import { LoginService } from "./service/login.service";
+
+import { HttpClientModule } from "@angular/common/http";
+import { CookieService } from 'ngx-cookie-service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +41,13 @@ import { ProviderRegistrationComponent } from './provider-registration/provider-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

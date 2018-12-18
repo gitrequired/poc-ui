@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   route: string;
   showHF: boolean;
 
-  constructor(private location: Location, private router: Router) {
+  constructor(private location: Location, private router: Router, private cookieService: CookieService) {
     router.events.subscribe((val) => {
       if (location.path() != "/login" || "") {
         this.showHF = true;
