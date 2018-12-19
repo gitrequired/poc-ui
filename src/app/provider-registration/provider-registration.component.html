@@ -1,64 +1,82 @@
-<form role="form">
-  <div class="form-group">
-    <label class="control-label">Prefix</label>
-    <select class="form-control">
-      <option selected>Select Suffix</option>
-      <option *ngFor="let suffix of suffixes">{{suffix}}</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label class="control-label">First Name</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Middle Name</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label class="control-label">Last Name</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label class="control-label">DOB</label>
-    <div>
-      <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker>
+<form #providerForm="ngForm" (ngSubmit)="onSubmit(providerForm);" novalidate>
+
+    <div class="form-group">
+      <label class="control-label">Prefix *</label>
+      <select (blur)="validatePrefix(prefix.value);" (change)="validatePrefix(prefix.value);" required #prefix="ngModel"
+        name="prefix" [class.is-invalid]="prefixHasError && prefix.touched" [(ngModel)]="provider.prefix" class="custom-select">
+        <option value="default">Select Prefix</option>
+        <option *ngFor="let prefix of prefixes">{{prefix}}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="!prefixHasError || prefix.untouched">Please Choose a prefix</small>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label">Gender</label>
-    <div class="radio">
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-        Male
-      </label>
-      &nbsp;
-      <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-        Female</label>
+    <div class="form-group">
+      <label class="control-label">First Name *</label>
+      <input type="text" required #firstName="ngModel" [class.is-invalid]="firstName.invalid && firstName.touched"
+        [(ngModel)]="provider.fname" name="fname" class="form-control">
+      <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name is Required</small>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="control-label">SSN</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label class="control-label">Primary Specialization</label>
-    <select class="form-control">
-      <option selected>Select Specialization</option>
-      <option *ngFor="let suffix of suffixes">{{suffix}}</option>
-    </select>
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox">Sencondary Specialization</label>
-    <select class="form-control" disabled>
-      <option selected>Select Specialization</option>
-      <option *ngFor="let suffix of suffixes">{{suffix}}</option>
-    </select>
-  </div>
-  <div class="form-group">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-  <hr>
-  <br>
-  <br>
-</form>
+    <div class="form-group">
+      <label>Middle Name</label>
+      <input type="text" #middleName="ngModel" [class.is-invalid]="middleName.invalid" [(ngModel)]="provider.middleName"
+        name="mname" class="form-control">
+      <small class="text-danger" [class.d-none]="middleName.valid">Middle Name is invalid</small>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Last Name *</label>
+      <input type="text" required #lastName="ngModel" [class.is-invalid]="lastName.invalid && lastName.touched"
+        [(ngModel)]="provider.lastName" name="lname" class="form-control">
+      <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name is Required</small>
+    </div>
+  
+  
+    <div class="form-group">
+      <label class="control-label">DOB *</label>
+      <div>
+        <input type="text" placeholder="10/10/1991" [(ngModel)]="provider.dob" class="form-control" bsDatepicker>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label">Gender *</label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="provider.gender" id="optionsRadios1" value="Male">
+          Male
+        </label>
+        &nbsp;
+        <label>
+          <input type="radio" name="gender" [(ngModel)]="provider.gender" id="optionsRadios2" value="Female">
+          Female</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label">SSN *</label>
+      <input type="text" required #ssn="ngModel" name="ssn" [class.is-invalid]="ssn.invalid && ssn.touched" [(ngModel)]="provider.ssn"
+        name="ssn" class="form-control">
+      <small class="text-danger" [class.d-none]="ssn.valid || ssn.untouched">SSN is Required</small>
+    </div>
+    <div class="form-group">
+      <label>Primary Specialization *</label>
+      <select (blur)="validateSpec(pspec.value);" (change)="validateSpec(pspec.value);" required #pspec="ngModel" name="pspecial"
+        [class.is-invalid]="specHasError && pspec.touched" [(ngModel)]="provider.pspecial" class="custom-select">
+        <option value="default">Select Specialization</option>
+        <option *ngFor="let pspec of specializations">{{pspec}}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="!specHasError || pspec.untouched">Please Choose a primary specialization</small>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" (change)="isChecked($event);">Sencondary Specialization</label>
+      <select class="custom-select" [disabled]="!checked" (blur)="validateSspec(sspec.value);" (change)="validateSspec(sspec.value);"
+        required #sspec="ngModel" name="sspecial" [class.is-invalid]="specHasError && sspec.touched" [(ngModel)]="provider.sspecial">
+        <option value="default">Select Specialization</option>
+        <option *ngFor="let sspec of specializations">{{sspec}}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="!sspecHasError || sspec.untouched">Please Choose a secondary
+        specialization</small>
+    </div>
+    <div class="form-group">
+    </div>
+    <button [disabled]="providerForm.form.invalid" class="btn btn-default" type="submit">Submit</button>
+    <hr>
+    <br>
+    <br>
+  </form>

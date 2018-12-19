@@ -6,25 +6,48 @@
         <h3> Search for Provider Info</h3>
         <br>
         <form class="form-inline my-2 my-lg-0" #searchForm="ngForm" (ngSubmit)="searchProvider(searchForm)">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Key" aria-label="Search" (ngModel)="loginForm.searchText" name="searchText">
-            <label>Search By</label>
-            <select class="form-control my-2 my-lg-0" ng-model="selectedType">
-                <option>Provider Id</option>
-                <option>Name</option>
-                <option>SSN</option>
-                <option>PFIN</option>
-            </select>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <div class="form-group">
+                <select class="form-control my-2 my-lg-0" ng-model="selectedType">
+                    <option> -Select City- </option>
+                    <option>lllinois</option>
+                    <option>Montanna</option>
+                    <option>Oklahoma</option>
+                    <option>Texas</option>
+                </select>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <select class="form-control my-2 my-lg-0" ng-model="selectedType">
+                    <option> -Select Type- </option>
+                    <option>Provider Id</option>
+                    <option>PFIN ID</option>
+                    <option>License</option>
+                </select>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Key" aria-label="Search"
+                    (ngModel)="loginForm.searchText" name="searchText">
+            </div>
+
+            &nbsp;&nbsp;&nbsp;
+            <div class="form-group">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </div>
+
         </form>
         <br>
         <hr>
-        <div class="row">
-            <h2>Search Result</h2>
-            <table class="table table-hover">
-
-            </table>
-        </div>
+        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
     </div>
     <br>
-
 </div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div>
+        <app-provider-registration></app-provider-registration>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary mb-2 mr-2" (click)="c('Save click')">Save</button>
+    </div>
+</ng-template>

@@ -3,7 +3,7 @@
 <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
   <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 rounded border">
       <table class="table">
         <tr>
           <td>UserName</td>
@@ -33,7 +33,83 @@
         <div class="col-lg-2"><button type="submit" class="btn btn-primary">Login</button></div>
         <div class="col-lg-5"></div>
       </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <button class="btn btn-outline-info" (click)="open(newUser)">Create User</button>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3"> <button class="btn btn-outline-info" (click)="open(ChangePassword)">Reset Password</button></div>
+        <div class="col-lg-1"></div>
+      </div>
     </div>
     <div class="col-md-3"></div>
   </div>
 </form>
+
+<ng-template #newUser let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Create New User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="dateOfBirth">User Name</label>
+        <div class="input-group">
+          <input id="userName" class="form-control" placeholder="userName">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">SSN</label>
+        <div class="input-group">
+          <input id="ssn" class="form-control" placeholder="SSN">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Password</label>
+        <div class="input-group">
+          <input id="password" class="form-control" placeholder="********">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="saveDetails()">Save</button>
+  </div>
+</ng-template>
+
+<ng-template #ChangePassword let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Change Password</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="dateOfBirth">UserID(SSN)</label>
+          <div class="input-group">
+            <input id="userName" class="form-control" placeholder="userName">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Old Password</label>
+          <div class="input-group">
+            <input id="ssn" class="form-control" placeholder="********">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">New Password</label>
+          <div class="input-group">
+            <input id="password" class="form-control" placeholder="********">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="saveDetails()">Save</button>
+    </div>
+  </ng-template>

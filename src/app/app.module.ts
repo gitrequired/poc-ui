@@ -22,6 +22,8 @@ import { LoginService } from "./service/login.service";
 import { HttpClientModule } from "@angular/common/http";
 import { CookieService } from 'ngx-cookie-service';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     FormsModule,
     AngularFontAwesomeModule,
     HttpClientModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     LoginService,

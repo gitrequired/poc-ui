@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'resetpassword', component: RecoverpasswordComponent},
   { path: 'home', component: HomeComponent},
   { path: 'search', component: SearchProviderComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'createUser', component: ProfileComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
 

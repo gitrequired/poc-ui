@@ -6,7 +6,7 @@ export class Provider {
         public gender: string,
         public prefix: string,
         public dob: Date,
-        public ssn: number,
+        public ssn: string,
         public pspecial: string,
         public ssepecial: string) {
     }
