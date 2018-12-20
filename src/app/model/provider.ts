@@ -7,6 +7,8 @@ export class Provider {
         public prefix: string,
         public dob: Date,
         public ssn: string,
+        public pfin: string,
+        public license: string,
         public pspecial: string,
         public ssepecial: string) {
     }

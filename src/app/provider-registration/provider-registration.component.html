@@ -1,5 +1,14 @@
 <form #providerForm="ngForm" (ngSubmit)="onSubmit(providerForm);" novalidate>
 
+  
+
+
+
+
+
+
+
+
     <div class="form-group">
       <label class="control-label">Prefix</label>
       <select (blur)="validatePrefix(prefix.value);" (change)="validatePrefix(prefix.value);" required #prefix="ngModel"
@@ -51,9 +60,31 @@
     <div class="form-group">
       <label class="control-label">SSN</label>
       <input type="text" required #ssn="ngModel" name="ssn" [class.is-invalid]="ssn.invalid && ssn.touched" [(ngModel)]="provider.ssn"
-        name="ssn" class="form-control">
+       class="form-control">
       <small class="text-danger" [class.d-none]="ssn.valid || ssn.untouched">SSN is Required</small>
     </div>
+
+
+    <div class="form-group">
+      <label class="control-label">PFIN</label>
+      <input type="text" required #pfin="ngModel" name="pfin" [class.is-invalid]="pfin.invalid && pfin.touched" [(ngModel)]="provider.pfin"
+        name="pfin" class="form-control">
+      <small class="text-danger" [class.d-none]="pfin.valid || pfin.untouched">PFIN is Required</small>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">License Id</label>
+      <input type="text" required #license="ngModel" name="licence" [class.is-invalid]="license.invalid && license.touched" [(ngModel)]="provider.license"
+       class="form-control">
+      <small class="text-danger" [class.d-none]="license.valid || license.untouched">license Id is Required</small>
+    </div>
+
+
+
+
+
+
+
     <div class="form-group">
       <label class="control-label">Primary Specialization</label>
       <select (blur)="validateSpec(pspec.value);" (change)="validateSpec(pspec.value);" required #pspec="ngModel" name="pspecial"
@@ -75,8 +106,8 @@
     </div>
     <div class="form-group">
     </div>
-    <button [disabled]="providerForm.form.invalid" class="btn btn-default" type="submit">Submit</button>&nbsp;
-    <button class="btn btn-default" type="reset" (click)="resetForm(providerForm)">Reset</button>
+    <button [disabled]="providerForm.form.invalid" class="btn btn-primary" type="submit">Submit</button>&nbsp;
+    <button class="btn btn-info" type="reset" (click)="resetForm(providerForm)">Reset</button>
     <hr>
     <br>
     <br>

@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./provider-registration.component.css']
 })
 export class ProviderRegistrationComponent implements OnInit {
-  provider = new Provider('', '', '', 'Male', '', null, '', '', '');
+  provider = new Provider('', '', '', 'Male', '', null, '', '', '', '', '');
   title = 'angular-forms';
   checked: boolean;
   prefixHasError: boolean;
@@ -53,7 +53,7 @@ export class ProviderRegistrationComponent implements OnInit {
     }
   }
 
-  resetForm(providerForm:NgForm){
+  resetForm(providerForm: NgForm) {
     providerForm.reset();
   }
 }
