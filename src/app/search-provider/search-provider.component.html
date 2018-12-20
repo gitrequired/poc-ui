@@ -38,16 +38,7 @@
         </form>
         <br>
         <hr>
-        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+        <h3>Search Result</h3>
     </div>
     <br>
 </div>
-
-<ng-template #content let-c="close" let-d="dismiss">
-    <div>
-        <app-provider-registration></app-provider-registration>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary mb-2 mr-2" (click)="c('Save click')">Save</button>
-    </div>
-</ng-template>

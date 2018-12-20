@@ -1,7 +1,7 @@
 <form #providerForm="ngForm" (ngSubmit)="onSubmit(providerForm);" novalidate>
 
     <div class="form-group">
-      <label class="control-label">Prefix *</label>
+      <label class="control-label">Prefix</label>
       <select (blur)="validatePrefix(prefix.value);" (change)="validatePrefix(prefix.value);" required #prefix="ngModel"
         name="prefix" [class.is-invalid]="prefixHasError && prefix.touched" [(ngModel)]="provider.prefix" class="custom-select">
         <option value="default">Select Prefix</option>
@@ -10,7 +10,7 @@
       <small class="text-danger" [class.d-none]="!prefixHasError || prefix.untouched">Please Choose a prefix</small>
     </div>
     <div class="form-group">
-      <label class="control-label">First Name *</label>
+      <label class="control-label">First Name</label>
       <input type="text" required #firstName="ngModel" [class.is-invalid]="firstName.invalid && firstName.touched"
         [(ngModel)]="provider.fname" name="fname" class="form-control">
       <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name is Required</small>
@@ -22,7 +22,7 @@
       <small class="text-danger" [class.d-none]="middleName.valid">Middle Name is invalid</small>
     </div>
     <div class="form-group">
-      <label class="control-label">Last Name *</label>
+      <label class="control-label">Last Name</label>
       <input type="text" required #lastName="ngModel" [class.is-invalid]="lastName.invalid && lastName.touched"
         [(ngModel)]="provider.lastName" name="lname" class="form-control">
       <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">Last Name is Required</small>
@@ -30,13 +30,13 @@
   
   
     <div class="form-group">
-      <label class="control-label">DOB *</label>
+      <label class="control-label">DOB</label>
       <div>
-        <input type="text" placeholder="10/10/1991" [(ngModel)]="provider.dob" class="form-control" bsDatepicker>
+        <input type="text" name="dob" placeholder="10/10/1991" [(ngModel)]="provider.dob" class="form-control" bsDatepicker>
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label">Gender *</label>
+      <label class="control-label">Gender</label>
       <div class="radio">
         <label>
           <input type="radio" name="gender" [(ngModel)]="provider.gender" id="optionsRadios1" value="Male">
@@ -49,13 +49,13 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label">SSN *</label>
+      <label class="control-label">SSN</label>
       <input type="text" required #ssn="ngModel" name="ssn" [class.is-invalid]="ssn.invalid && ssn.touched" [(ngModel)]="provider.ssn"
         name="ssn" class="form-control">
       <small class="text-danger" [class.d-none]="ssn.valid || ssn.untouched">SSN is Required</small>
     </div>
     <div class="form-group">
-      <label>Primary Specialization *</label>
+      <label class="control-label">Primary Specialization</label>
       <select (blur)="validateSpec(pspec.value);" (change)="validateSpec(pspec.value);" required #pspec="ngModel" name="pspecial"
         [class.is-invalid]="specHasError && pspec.touched" [(ngModel)]="provider.pspecial" class="custom-select">
         <option value="default">Select Specialization</option>
@@ -75,7 +75,8 @@
     </div>
     <div class="form-group">
     </div>
-    <button [disabled]="providerForm.form.invalid" class="btn btn-default" type="submit">Submit</button>
+    <button [disabled]="providerForm.form.invalid" class="btn btn-default" type="submit">Submit</button>&nbsp;
+    <button class="btn btn-default" type="reset" (click)="resetForm(providerForm)">Reset</button>
     <hr>
     <br>
     <br>

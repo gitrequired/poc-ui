@@ -52,4 +52,8 @@ export class ProviderRegistrationComponent implements OnInit {
       this.prefixHasError = false;
     }
   }
+
+  resetForm(providerForm:NgForm){
+    providerForm.reset();
+  }
 }

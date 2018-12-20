@@ -97,3 +97,7 @@ color: #fff;
 background-color: #1CA347;
 border-color: #1CA347;
 }
+
+.form-group .control-label:after {
+  content:"*";color:red;
+}
