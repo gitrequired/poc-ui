@@ -10,6 +10,6 @@ export class Provider {
         public pfin: string,
         public license: string,
         public pspecial: string,
-        public ssepecial: string) {
+        public sspecial: string) {
     }
 }
