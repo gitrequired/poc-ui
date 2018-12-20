@@ -13,12 +13,18 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbModalConfig, NgbModal]
 })
 export class SearchProviderComponent implements OnInit {
-
+  searchResults:Array<string>;
+  tabbleView:boolean;
   constructor(private router: Router, private service: SearchProvider,
     private cookieService: CookieService, config: NgbModalConfig,
     private modalService: NgbModal) {
     config.backdrop = 'static';
     config.keyboard = false;
+  }
+
+  getSearchResults(){
+    this.searchResults =["AAA","AAA","AAA","AAA","AAA","AAA","AAA"];
+   this.tabbleView = true;
   }
 
   ngOnInit() {
