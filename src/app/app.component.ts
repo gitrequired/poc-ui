@@ -28,5 +28,6 @@ export class AppComponent implements OnInit {
     //comments - 1
     //comments - 1
     //comments
+    //some code added as part of branch-1
   }
 }
