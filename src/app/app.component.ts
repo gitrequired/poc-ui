@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     let routeString = this.route;
     this.showHF = true;
-    //comments
+    //comments - 1
+    //comments - 1
   }
 }
