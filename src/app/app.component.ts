@@ -26,9 +26,5 @@ export class AppComponent implements OnInit {
     let routeString = this.route;
     this.showHF = true;
     //comments - 1
-    //comments - 1
-    //comments
-    //some code added as part of branch-1
-    //Some code added as part of branch-2
   }
 }
