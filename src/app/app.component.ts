@@ -26,8 +26,5 @@ export class AppComponent implements OnInit {
     let routeString = this.route;
     this.showHF = true;
     //comments - 1
-    //comments - 11
-    //comments - 111
-    //comments - 1111
   }
 }
