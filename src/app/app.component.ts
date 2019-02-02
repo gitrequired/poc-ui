@@ -28,5 +28,10 @@ export class AppComponent implements OnInit {
     //comments - 1
     //coment -11
     //comments -222
+    //comments - 1
+    //coment -11
+    this.showHF = true;
+    //comments -222
+    //comments -22
   }
 }
